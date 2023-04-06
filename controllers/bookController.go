@@ -24,12 +24,10 @@ func CreateBook(ctx *gin.Context) {
 		return
 	}
 
-	newBook.BookID = fmt.Sprintf("c%d", len(BookDatas)+1)
+	newBook.BookID = fmt.Sprintf("%d", len(BookDatas)+1)
 	BookDatas = append(BookDatas, newBook)
 
-	ctx.JSON(http.StatusCreated, gin.H{
-		"book": newBook,
-	})
+	ctx.JSON(http.StatusCreated, newBook)
 }
 
 func UpdateBook(ctx *gin.Context) {
@@ -78,9 +76,7 @@ func GetAllBook(ctx *gin.Context) {
         return
     }
 
-	ctx.JSON(http.StatusOK, gin.H{
-		"book": BookDatas,
-	})
+	ctx.JSON(http.StatusOK, BookDatas)
 }
 
 func GetBook(ctx *gin.Context) {
