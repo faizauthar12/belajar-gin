@@ -64,6 +64,25 @@ func UpdateCar(ctx *gin.Context) {
 	})
 }
 
+func GetAllCar(ctx *gin.Context) {
+    condition := false
+    if CarDatas != nil  {
+        condition = true
+    }
+
+    if !condition {
+        ctx.AbortWithStatusJSON(http.StatusNotFound, gin.H{
+            "error_status":  "Data Not Found",
+            "error_message": fmt.Sprintf("Database empty"),
+        })
+        return
+    }
+
+	ctx.JSON(http.StatusOK, gin.H{
+		"car": CarDatas,
+	})
+}
+
 func GetCar(ctx *gin.Context) {
 	carID := ctx.Param("carID")
 	condition := false
