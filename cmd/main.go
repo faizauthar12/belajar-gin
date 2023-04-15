@@ -1,7 +1,7 @@
 package main
 
 import (
-	"excersise-9/models"
+	"belajar-gin/models"
 	"fmt"
 
 	"gorm.io/driver/postgres"

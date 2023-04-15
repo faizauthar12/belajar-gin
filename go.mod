@@ -1,4 +1,4 @@
-module excersise-9
+module belajar-gin
 
 go 1.20
 
